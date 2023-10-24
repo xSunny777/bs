@@ -6,6 +6,7 @@
 #include <sys/wait.h>
 
 int main(int argc, char *argv[]) {
+	
 
 	char string[100];
 	int statval;
