@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
 	int statval;
 	while(1){
 		printf("\n");
-		printf("\n");
 		printf("Kommando: ");
 		scanf("%s",string);
 		if(strcmp(string, "q") == 0){
@@ -24,7 +23,7 @@ int main(int argc, char *argv[]) {
 		if((id = fork()) > 0){
 			wait(&statval);
 			printf("\n");
-                	printf("\n");
+            printf("\n");
 			printf("Vater: \n");
 			printf("res: %d errno: %d; status: %d", id, errno, WEXITSTATUS(statval));
 		}else{
