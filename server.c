@@ -22,12 +22,12 @@ int main(int argc , char *argv[])
 		return EXIT_FAILURE;
 	}
 	
-	if(atoi(argv[1]) < 1)
+	if(atoi(argv[1]) < 1) //gilt ab Port 1024 (incl.1024)
     {
 		printf("\nPort Falsch angegeben!\n\n");
 		return EXIT_FAILURE;
 	}
-    
+
 	port = (unsigned) atoi(argv[1]);
 	
 	printf("\nServer starten....\n\n");

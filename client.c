@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
 
 	int	sock;
 	unsigned int port;
-	struct sockaddr_in	server;
-	struct hostent	*host;
+	struct sockaddr_in server;
+	struct hostent *host;
     
 	//Prüfen der eingaben
 	if(argc != 3)
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 	
-	if(atoi(argv[2]) < 1)
+	if(atoi(argv[2]) < 1) //atoi: ASCII to Integer
     {
 		printf("\n Port Falsch angegeben!\n\n");
 		return EXIT_FAILURE;
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 	//sockaddr_in server Füllen
 	server.sin_family = AF_INET;
 	server.sin_port = htons(port);
-	bcopy(host->h_addr, &server.sin_addr, host->h_length);
+	bcopy(host->h_addr_list, &server.sin_addr, host->h_length);
 
 	//Verbindung herstellen
 	if(connect(sock,(struct sockaddr*) &server,sizeof(server)) < 0)    
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 	
 	//Empfangen
 	char antwort[2000];
-	if( recv(sock , antwort , 2000 , 0) < 0)
+	if( recv(sock ,antwort ,2000 ,0) < 0)
     {
 		printf("\n Empfangen Fehlgeschlagen!\n\n");
 		return EXIT_FAILURE;
